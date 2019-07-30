@@ -11,9 +11,9 @@ const path         = require('path');
 const cors         = require('cors');
 const passport     = require('passport');
 const session      = require('express-session');
-// const bcrypt       = require('bcryptjs');
 
-// require('./configs/passport')
+
+require('./config/passport');
 
 mongoose
   .connect('mongodb://localhost/project-3-backend', {useNewUrlParser: true})
@@ -52,7 +52,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 app.use(session({
-  secret:"some secret goes here",
+  secret:"secret",
   resave: true,
   saveUninitialized: true
 }));
@@ -65,11 +65,15 @@ app.use(passport.session());
 
 app.use(cors({
   credentials: true,
+    // comment when deployed:
   origin: ['http://localhost:3000']
+    // change 'blah' and uncomment when deployed:
+    // origin: ['http://localhost:3000', 'https://blah.herokuapp.com']
+
 }));
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Kukee Bliss Yoga';
 
 
 
