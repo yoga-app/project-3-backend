@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const asanas = require('../yoga_api.json')
+const asanas = require('../bin/yoga_api.json')
 const Asana = require('../models/Asana')
 
 router.get('/', (req, res, next) => {
@@ -36,6 +36,7 @@ router.post('/data/seed/asanas', (req, res, next) => {
     res.status(403).json('Invalid credentials')
   }
 })
+
 
 
 
