@@ -3,8 +3,9 @@ const Schema   = mongoose.Schema;
 
 const asanaSchema = new Schema ({
 
-    title: String,
-    description: String,
+    sanskrit_name: String,
+    english_name: String,
+    img_url: String,
 
 })
 
