@@ -84,8 +84,7 @@ const asanaRoutes = require('./routes/asanaRoutes');
 app.use('/asanas', asanaRoutes)
 
 const quoteRoutes = require('./routes/quotesRoutes');
-app.use('/', quoteRoutes)
-
+app.use('/quote', quoteRoutes)
 
 const userRoutes = require('./routes/userRoutes');
 app.use('/api/auth', userRoutes);

@@ -47,12 +47,10 @@ router.post('/signup', (req, res, next) => {
           }
           
           req.login(aNewUser, (err) => {
-
               if (err) {
                   res.status(500).json({ message: 'Login after signup went bad.' });
                   return;
               }
-          
               res.status(200).json(aNewUser);
           });
       });
@@ -90,6 +88,7 @@ router.post('/logout', (req, res, next) => {
 router.get('/getcurrentuser', (req, res, next) => {
     if (req.user) {
         let newObject = {};
+        // add first name and last name to use in welcome message
         newObject.username = req.user.username;
         newObject._id = req.user._id;
 
