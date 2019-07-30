@@ -9,6 +9,11 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 const cors         = require('cors');
+const passport     = require('passport');
+const session      = require('express-session');
+
+
+require('./config/passport');
 
 mongoose
   .connect('mongodb://localhost/project-3-backend', {useNewUrlParser: true})
@@ -44,13 +49,31 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+
+
+app.use(session({
+  secret:"secret",
+  resave: true,
+  saveUninitialized: true
+}));
+
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 app.use(cors({
   credentials: true,
+    // comment when deployed:
   origin: ['http://localhost:3000']
+    // change 'blah' and uncomment when deployed:
+    // origin: ['http://localhost:3000', 'https://blah.herokuapp.com']
+
 }));
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Kukee Bliss Yoga';
 
 
 
@@ -62,6 +85,9 @@ app.use('/asanas', asanaRoutes)
 
 const quoteRoutes = require('./routes/quotesRoutes');
 app.use('/quote', quoteRoutes)
+
+const userRoutes = require('./routes/userRoutes');
+app.use('/api/auth', userRoutes);
 
 
 module.exports = app;
