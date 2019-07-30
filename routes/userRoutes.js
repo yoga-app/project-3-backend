@@ -1,10 +1,8 @@
 const express   = require('express');
 const router    = express.Router();
-
 const User      = require('../models/User');
 const bcrypt    = require('bcryptjs');
 const passport  = require('passport');
-
 
 router.post('/signup', (req, res, next) => {
   const username = req.body.username;
@@ -21,7 +19,6 @@ router.post('/signup', (req, res, next) => {
     //       res.status(400).json({ message: 'Please make your password at least 8 characters long for security purposes.' });
     //       return;
     //   }
-
 
   User.findOne({ username }, (err, foundUser) => {
 
@@ -62,8 +59,6 @@ router.post('/signup', (req, res, next) => {
   });
 });
 
-
-
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', (err, theUser, failureDetails) => {
         if (err) {
@@ -87,16 +82,10 @@ router.post('/login', (req, res, next) => {
     })(req, res, next);
   });
 
-
-
 router.post('/logout', (req, res, next) => {
     req.logout();
     res.status(200).json({ message: 'Log out success!' });
 });
-
-
-
-
 
 router.get('/getcurrentuser', (req, res, next) => {
     if (req.user) {
@@ -109,12 +98,6 @@ router.get('/getcurrentuser', (req, res, next) => {
     }
     res.status(403).json({ message: 'Unauthorized' });
 });
-
-
-
-
-
-
 
 
 module.exports = router;
