@@ -60,5 +60,8 @@ app.use('/', index);
 const asanaRoutes = require('./routes/asanaRoutes');
 app.use('/asanas', asanaRoutes)
 
+const quoteRoutes = require('./routes/quotesRoutes');
+app.use('/', quoteRoutes)
+
 
 module.exports = app;
