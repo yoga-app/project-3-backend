@@ -109,7 +109,7 @@ router.get('/getcurrentuser', (req, res, next) => {
     res.status(403).json({ message: 'Unauthorized' });
 });
 
-router.post('/updateuserinfo/:id', uploadMagic.single('image'), (req, res, next) => {
+router.post('/updateuserinfo/:id', uploadMagic.single('picture'), (req, res, next) => {
     if(req.file.url) {req.body.picture = req.file.url}
     User.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .then((updatedUser)=> {
