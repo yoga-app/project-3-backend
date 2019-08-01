@@ -38,4 +38,24 @@ router.post('/data/seed/faq', (req, res, next) => {
   }
 })
 
+router.post('/deletebyid/:id', (req, res, next) => {
+  FAQ.findByIdAndRemove(req.params.id)
+  .then(()=> {
+    res.json({message: 'Deleted successfully'})
+  })
+  .catch(err=> {
+    res.status(500).json({message: "Something went wrong deleting FAQ"})
+  })
+})
+
+router.post('/updatebyid/:id', (req, res, next) => {
+  FAQ.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then((updated) => {
+    res.json({message: "Updated successfully", updated: updated})
+  })
+  .catch(err => {
+    res.status(500).json({message: 'Something went wrong updating FAQ'})
+  })
+})
+
 module.exports = router;

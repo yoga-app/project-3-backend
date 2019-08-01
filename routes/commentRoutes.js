@@ -45,4 +45,14 @@ router.post('/updatebyid/:id', (req, res, next)=> {
   })
 })
 
+router.get('/getall', (req, res, next) => {
+  Comment.find().populate('author')
+  .then(allComments => {
+    res.json(allComments)
+  })
+  .catch(err=> {
+    res.status(500).json({message: "Something went wrong getting all the comments"})
+  })
+})
+
 module.exports = router;
