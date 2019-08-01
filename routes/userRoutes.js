@@ -110,7 +110,7 @@ router.get('/getcurrentuser', (req, res, next) => {
 });
 
 router.post('/updateuserinfo/:id', uploadMagic.single('picture'), (req, res, next) => {
-    if(req.file.url) {req.body.picture = req.file.url}
+    if(req.file) {req.body.picture = req.file.url}
     User.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .then((updatedUser)=> {
         res.json({updatedUser: updatedUser, message: 'User info updated successfully'})

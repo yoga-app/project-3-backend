@@ -92,5 +92,8 @@ app.use('/api/auth', userRoutes);
 const commentRoutes = require('./routes/commentRoutes');
 app.use('/comment', commentRoutes);
 
+const faqRoutes = require('./routes/faqRoutes');
+app.use('/faq', faqRoutes);
+
 
 module.exports = app;
