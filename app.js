@@ -95,5 +95,7 @@ app.use('/comment', commentRoutes);
 const faqRoutes = require('./routes/faqRoutes');
 app.use('/faq', faqRoutes);
 
+const testimonialRoutes = require('./routes/testimonialRoutes');
+app.use('/testimonial', testimonialRoutes);
 
 module.exports = app;
