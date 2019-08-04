@@ -9,6 +9,7 @@ const goodies = require('../bin/testimonials.json');
 router.get('/getall', (req, res, next) => {
   Testimonial.find()
   .then(response => {
+    response.reverse();
     res.json(response);
   })
   .catch(err =>{

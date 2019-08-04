@@ -42,6 +42,7 @@ router.post('/signup', (req, res, next) => {
           password: hashPass,
           firstName: req.body.firstName,
           lastName: req.body.lastName,
+          isAdmin: req.body.isAdmin || false,
           
       });
 
@@ -102,6 +103,8 @@ router.get('/getcurrentuser', (req, res, next) => {
         newObject.subscription = req.user.subscription;
         newObject.package = req.user.package;
         newObject.created_at = req.user.created_at;
+        newObject.isAdmin = req.user.isAdmin;
+        newObject.level = req.user.level;
 
         res.status(200).json(newObject);
         return;

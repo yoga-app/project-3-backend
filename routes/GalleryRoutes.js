@@ -9,6 +9,7 @@ const galleryItemStorage = require('../bin/galleryItemStorage.json');
 router.get('/getall', (req, res, next) => {
   GalleryItem.find()
   .then(response => {
+    response.reverse();
     res.json(response);
   })
   .catch(err =>{
