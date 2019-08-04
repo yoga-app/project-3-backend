@@ -60,6 +60,10 @@ router.post('/deletebyid/:id', (req, res, next) => {
 
 router.post('/updatebyid/:id', uploadMagic.single('picture'), (req, res, next) => {
   if(req.file) {req.body.picture = req.file.url}
+  if(req.body.video) {
+    let temp = req.body.video.replace('watch?v=', 'embed/')
+    req.body.video = temp;
+  }
   if(req.body.category) {
     let temp = req.body.category
     .split(',')
