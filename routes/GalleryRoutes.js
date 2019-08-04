@@ -29,7 +29,7 @@ router.get('/getbyid/:id', (req, res, next) => {
 router.post('/create', uploadMagic.single('picture'), (req, res, next) => {
   if(req.file) {req.body.picture = req.file.url}
   if(req.body.video) {
-    let temp = req.body.video.replace('watch', 'embed')
+    let temp = req.body.video.replace('watch?v=', 'embed/')
     req.body.video = temp;
   }
   if(req.body.category) {
