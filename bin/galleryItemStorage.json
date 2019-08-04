@@ -1,3 +1,41 @@
 [
-  {}
+  {
+      "picture": "https://images.unsplash.com/photo-1524863479829-916d8e77f114?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=220&h=200&fit=crop&ixid=eyJhcHBfaWQiOjF9",
+      "category": [
+          "beginners stuff",
+          "new",
+          "other",
+          "fresh"
+      ],
+      "_id": "5d47278aeafc724b3a2cb316",
+      "video": "https://www.youtube.com/embed/CIbR7odQklk",
+      "title": "yoga video",
+      "text": "description",
+      "__v": 0
+  },
+  {
+      "picture": "https://images.unsplash.com/photo-1524863479829-916d8e77f114?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=220&h=200&fit=crop&ixid=eyJhcHBfaWQiOjF9",
+      "category": [
+          "think about it",
+          "teed talks",
+          "info"
+      ],
+      "_id": "5d472866eafc724b3a2cb317",
+      "video": "https://www.youtube.com/embed/hHrBFYhcQ6c",
+      "title": "another video",
+      "text": "exciting, isn't it?",
+      "__v": 0
+  },
+  {
+      "picture": "https://images.unsplash.com/photo-1524863479829-916d8e77f114?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=220&h=200&fit=crop&ixid=eyJhcHBfaWQiOjF9",
+      "category": [
+          "info",
+          "reasons",
+          "fresh"
+      ],
+      "_id": "5d472928eafc724b3a2cb318",
+      "title": "21 Reasons to Do Yoga",
+      "text": "Most of us spend the majority of our time thinking about the past or the future (regretting, worrying, planning), or checking out completely into the land of cell phones and social media. Many of the benefits of yoga stem from the ability to unplug and focus on what’s going on in your body and in your life right now. Happiness can only be found here and now.\nRead more at https://wanderlust.com/journal/21-reasons-yoga/",
+      "__v": 0
+  }
 ]
