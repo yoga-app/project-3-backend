@@ -98,4 +98,7 @@ app.use('/faq', faqRoutes);
 const testimonialRoutes = require('./routes/testimonialRoutes');
 app.use('/testimonial', testimonialRoutes);
 
+const galleryItemsRoutes = require('./routes/GalleryRoutes');
+app.use('/galleryitem', galleryItemsRoutes);
+
 module.exports = app;
