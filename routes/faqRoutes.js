@@ -7,6 +7,7 @@ const faqList = require('../bin/faq.json')
 router.get('/getall', (req, res, next) => {
   FAQ.find()
   .then((response)=> {
+    response.reverse()
     res.json(response)
   })
   .catch(err=> {
