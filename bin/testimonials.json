@@ -1,56 +1,56 @@
 [
-  {
-      "picture": "http://res.cloudinary.com/ironhack55/image/upload/v1564764087/yoga-one/image%20%281%29.png.png",
-      "_id": "5d4467b781ac96ebf5082e5d",
-      "text": "This class was amazing! The instructor made the class fun and dynamic with lots of tips for alignment. I have been doing yoga for a couple months but felt like I wasn’t doing it right and the instructor really showed me how to fix my poses. Will come every week. This is not hot yoga but I sweated almost as much! Will be great to build my strength.",
-      "author": "Liz Parra",
-      "attended": "Power Yoga",
-      "rating": "5/5",
-      "__v": 0
-  },
-  {
-      "picture": "http://res.cloudinary.com/ironhack55/image/upload/v1564764165/yoga-one/image%20%282%29.png.png",
-      "_id": "5d44680581ac96ebf5082e5e",
-      "text": "I have a shoulder and knee injury with back pain and these classes have helped me a lot. I always get an adjustment at the chiropractor and after a few days everything starts hurting again, but since starting the classes I have felt great relief. I practice some of the exercises at home because I am very stiff in the mornings, and they work great on my muscles.",
-      "author": "Diego Benitez",
-      "attended": "Restorative Yoga",
-      "rating": "5/5",
-      "__v": 0
-  },
-  {
-      "picture": "http://res.cloudinary.com/ironhack55/image/upload/v1564764220/yoga-one/image%20%283%29.png.png",
-      "_id": "5d44683d81ac96ebf5082e5f",
-      "text": "I went to one of their classes and enjoyed it very much. I wish I could go every time but my church group meets Wednesday nights. Maybe in the winter the schedule will change and I will bring my friends from church.",
-      "author": "Maria Hernandez",
-      "attended": "Restorative Yoga",
-      "rating": "5/5",
-      "__v": 0
-  },
-  {
-      "picture": "http://res.cloudinary.com/ironhack55/image/upload/v1564764281/yoga-one/image%20%284%29.png.png",
-      "_id": "5d44687a81ac96ebf5082e60",
-      "text": "I am 65 years old and thought I could not do yoga because I have arthritis and hurts to get on the floor. The chair yoga class was active yet gentle and I am glad I found a way to exercise again. The instructor made the class fun and I can use the exercises I remember at home.",
-      "author": "Robert Whitfield",
-      "attended": "Chair Yoga",
-      "rating": "5/5",
-      "__v": 0
-  },
-  {
-      "picture": "http://res.cloudinary.com/ironhack55/image/upload/v1564764320/yoga-one/image%20%285%29.png.png",
-      "_id": "5d4468a081ac96ebf5082e61",
-      "text": "How much fun! I never thought chair yoga could be like this! I recently injured both my knees and I am on magnesium tablets to help with the cramps but they only do so much. This class got the flow in my legs back and my back felt sooo good with the stretches. I work at a factory on my feet all day so everything hurts constantly. Definitely a keeper!",
-      "author": "Angelica Gutierrez",
-      "attended": "Chair Yoga",
-      "rating": "5/5",
-      "__v": 0
-  },
-  {
-      "picture": "http://res.cloudinary.com/ironhack55/image/upload/v1564764371/yoga-one/image%20%286%29.png.png",
-      "_id": "5d4468d381ac96ebf5082e62",
-      "text": "The class was nice and all, only I felt that I was too slow. The instructor showed me some alternatives to the exercises for my back injuries and made sure everyone was keeping up. Will see how it goes next time for me.",
-      "author": "Anthony Tervo",
-      "attended": "Chair Yoga",
-      "rating": "3/5",
-      "__v": 0
-  }
+    {
+        "picture": "http://res.cloudinary.com/ironhack55/image/upload/v1565018970/yoga-one/anthony-tervo.png.png",
+        "_id": "5d4468d381ac96ebf5082e62",
+        "text": "The class was nice and all, only I felt that I was too slow. The instructor showed me some alternatives to the exercises for my back injuries and made sure everyone was keeping up. Will see how it goes next time for me.",
+        "author": "Anthony Tervo",
+        "attended": "Chair Yoga",
+        "rating": "3/5",
+        "__v": 0
+    },
+    {
+        "picture": "http://res.cloudinary.com/ironhack55/image/upload/v1565019008/yoga-one/angelica-gutierrez.png.png",
+        "_id": "5d4468a081ac96ebf5082e61",
+        "text": "How much fun! I never thought chair yoga could be like this! I recently injured both my knees and I am on magnesium tablets to help with the cramps but they only do so much. This class got the flow in my legs back and my back felt sooo good with the stretches. I work at a factory on my feet all day so everything hurts constantly. Definitely a keeper!",
+        "author": "Angelica Gutierrez",
+        "attended": "Chair Yoga",
+        "rating": "5/5",
+        "__v": 0
+    },
+    {
+        "picture": "http://res.cloudinary.com/ironhack55/image/upload/v1565019041/yoga-one/robert-whitfield.png.png",
+        "_id": "5d44687a81ac96ebf5082e60",
+        "text": "I am 65 years old and thought I could not do yoga because I have arthritis and hurts to get on the floor. The chair yoga class was active yet gentle and I am glad I found a way to exercise again. The instructor made the class fun and I can use the exercises I remember at home.",
+        "author": "Robert Whitfield",
+        "attended": "Chair Yoga",
+        "rating": "5/5",
+        "__v": 0
+    },
+    {
+        "picture": "http://res.cloudinary.com/ironhack55/image/upload/v1565019072/yoga-one/maria-hernandez.png.png",
+        "_id": "5d44683d81ac96ebf5082e5f",
+        "text": "I went to one of their classes and enjoyed it very much. I wish I could go every time but my church group meets Wednesday nights. Maybe in the winter the schedule will change and I will bring my friends from church.",
+        "author": "Maria Hernandez",
+        "attended": "Restorative Yoga",
+        "rating": "5/5",
+        "__v": 0
+    },
+    {
+        "picture": "http://res.cloudinary.com/ironhack55/image/upload/v1565019100/yoga-one/diego-benitez.png.png",
+        "_id": "5d44680581ac96ebf5082e5e",
+        "text": "I have a shoulder and knee injury with back pain and these classes have helped me a lot. I always get an adjustment at the chiropractor and after a few days everything starts hurting again, but since starting the classes I have felt great relief. I practice some of the exercises at home because I am very stiff in the mornings, and they work great on my muscles.",
+        "author": "Diego Benitez",
+        "attended": "Restorative Yoga",
+        "rating": "5/5",
+        "__v": 0
+    },
+    {
+        "picture": "http://res.cloudinary.com/ironhack55/image/upload/v1565019131/yoga-one/liz-parra.png.png",
+        "_id": "5d4467b781ac96ebf5082e5d",
+        "text": "This class was amazing! The instructor made the class fun and dynamic with lots of tips for alignment. I have been doing yoga for a couple months but felt like I wasn’t doing it right and the instructor really showed me how to fix my poses. Will come every week. This is not hot yoga but I sweated almost as much! Will be great to build my strength.",
+        "author": "Liz Parra",
+        "attended": "Power Yoga",
+        "rating": "5/5",
+        "__v": 0
+    }
 ]
