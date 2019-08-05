@@ -81,6 +81,31 @@ router.post('/updatebyid/:id', uploadMagic.single('picture'), (req, res, next) =
   })
 })
 
+router.post('/likebyid/:id', (req, res, next) => {
+  if(req.body.direction == 'add') {
+    GalleryItem.findByIdAndUpdate(req.params.id, {
+      $push: {likedBy : req.body.userID}
+    }, {new: true})
+    .then(response => {
+      res.json({message: 'Liked successfully', updatedGalleryItem: response})
+    })
+    .catch(err =>{
+      res.status(500).json({message: 'Something went wrong updating gallery item'})
+    })
+}
+else if (req.body.direction == 'remove') {
+  GalleryItem.findByIdAndUpdate(req.params.id, {
+    $pull: {likedBy : req.body.userID}
+  }, {new: true})
+  .then(response => {
+    res.json({message: 'Like removed successfully', updatedGalleryItem: response})
+  })
+  .catch(err =>{
+    res.status(500).json({message: 'Something went wrong updating gallery item'})
+  })
+}
+})
+
 
 router.post('/data/seed/galleryitem', (req, res, next) => {
   if(req.body.key == "coolboy55") {

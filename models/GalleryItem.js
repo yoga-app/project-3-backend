@@ -7,6 +7,7 @@ const galleryItemSchema = new Schema ({
     title: String,
     text: String,
     category: [{type: String}],
+    likedBy: [{type: Schema.Types.ObjectId, ref: 'User'}],
 })
 
 

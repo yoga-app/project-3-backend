@@ -123,6 +123,31 @@ router.post('/updateuserinfo/:id', uploadMagic.single('picture'), (req, res, nex
     })
 })
 
+router.post('/updatefavorited/:id', (req, res, next) => {
+    if(req.body.direction == 'add') {
+      User.findByIdAndUpdate(req.params.id, {
+        $push: {favoritedItems : req.body.itemID}
+      }, {new: true})
+      .then(response => {
+        res.json({message: 'Added to favorited successfully', updatedUser: response})
+      })
+      .catch(err =>{
+        res.status(500).json({message: 'Something went wrong updating user'})
+      })
+  }
+  else if (req.body.direction == 'remove') {
+    User.findByIdAndUpdate(req.params.id, {
+      $pull: {favoritedItems : req.body.itemID}
+    }, {new: true})
+    .then(response => {
+      res.json({message: 'Removed from favorited successfully', updatedUser: response})
+    })
+    .catch(err =>{
+      res.status(500).json({message: 'Something went wrong updating user'})
+    })
+  }
+  })
+
 router.post('/deleteprofile/:id', (req, res, next) => {
     User.findByIdAndRemove(req.params.id)
     .then(()=> {
