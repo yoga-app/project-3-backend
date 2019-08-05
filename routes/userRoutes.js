@@ -106,10 +106,18 @@ router.get('/getcurrentuser', (req, res, next) => {
         newObject.isAdmin = req.user.isAdmin;
         newObject.level = req.user.level;
 
-        res.status(200).json(newObject);
-        return;
+        User.findById(newObject._id).populate('favoritedItems')
+        .then(user=> {
+            newObject.favoritedItems = user.favoritedItems
+            res.status(200).json(newObject);
+        })
+        .catch(err=> {
+            res.json(err)
+        })
+    } else {
+
+        res.status(403).json({ message: 'Unauthorized' });
     }
-    res.status(403).json({ message: 'Unauthorized' });
 });
 
 router.post('/updateuserinfo/:id', uploadMagic.single('picture'), (req, res, next) => {
@@ -159,7 +167,7 @@ router.post('/deleteprofile/:id', (req, res, next) => {
 })
 
 router.get('/getuserbyid/:id', (req, res, next) => {
-    User.findById(req.params.id)
+    User.findById(req.params.id).populate('favoritedItems')
     .then((user)=> {
         res.json(user)
     })
