@@ -131,6 +131,20 @@ router.post('/updateuserinfo/:id', uploadMagic.single('picture'), (req, res, nex
     })
 })
 
+router.post('/updateuserpackage/:id', (req, res, next) => {
+    User.findByIdAndUpdate(req.params.id, {
+    'package.status': req.body.status,
+    'package.classesLeft': req.body.classesLeft,
+    'package.type': req.body.type
+    }, {new: true})
+    .then((updatedUser)=> {
+        res.json({message: "Package info updated successfully", updatedUser: updatedUser})
+    })
+    .catch(err=> {
+        res.status(500).json({message: "Something went wrong updating user package"})
+    })
+})
+
 router.post('/updatefavorited/:id', (req, res, next) => {
     if(req.body.direction == 'add') {
       User.findByIdAndUpdate(req.params.id, {

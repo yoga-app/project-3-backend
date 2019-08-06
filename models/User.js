@@ -16,7 +16,8 @@ const userSchema = new Schema({
                   },  
   package: {
             classesLeft: Number,
-            type: {type: String, enum: ['beginner', 'medium', 'advanced']}
+            type: {type: String, enum: ['beginner', 'medium', 'advanced']},
+            status: String,
             }
 }, {
   timestamps: {
