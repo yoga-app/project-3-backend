@@ -4,6 +4,17 @@ const User      = require('../models/User');
 const bcrypt    = require('bcryptjs');
 const passport  = require('passport');
 const uploadMagic = require('../config/cloudinary');
+const nodemailer = require('nodemailer')
+
+
+let transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: process.env.GMAILEMAIL,
+    pass: process.env.GMAILPASS 
+  }
+});
+
 
 router.post('/signup', (req, res, next) => {
   const username = req.body.username;
@@ -51,6 +62,25 @@ router.post('/signup', (req, res, next) => {
               res.status(400).json({ message: 'Saving user to database went wrong.' });
               return;
           }
+
+          transporter.sendMail({
+            from: 'DONOTREPLY@KukeeBlissYoga.com',
+            to: username, 
+            subject: 'Thank you for signing up', 
+            text: 'WOW, you actually dont even have a computer. check your beeper for details',
+            html: `<h4>${req.body.firstName}</h4>
+            <p> Thank you for signing up for an account with Kukee Bliss Yoga </p>
+                <p>I'm looking forward to seeing you in class!</p>
+                <p>Valeria</p>
+            `
+          }).then(info => {
+    
+            console.log(info)
+            console.log('Welcome email sent');
+            
+          
+          })
+          .catch(error => console.log(error))
           
           req.login(aNewUser, (err) => {
               if (err) {
@@ -199,5 +229,49 @@ router.get('/getallusers', (req, res, next) => {
         res.status(500).json({message: 'Something went wrong geting all users'})
     })
 })
+
+router.post('/forgot-pass', (req, res, next)=>{
+
+    User.findOne({username: req.body.email})
+    .then((theUser)=>{
+
+        transporter.sendMail({
+          from: 'DONOTREPLY@KukeeBlissYoga.com',
+          to: req.body.email, 
+          subject: 'You Requested to Reset Your Password', 
+          text: 'WOW, you actually dont even have a computer. check your beeper for details',
+          html: `<p> Thank you for using our password reset feature.  If you did not 
+          request this action please go to www.yougothacked.com to for more info
+          please use the following link to reset your password 
+          <a href="http://localhost:3000/forgot-password-update/${theUser._id}">Reset Password</a>
+          `
+        })
+        .then((info)=>{
+            console.log(info)
+            console.log('Password reset email sent');
+        })
+        .catch((err)=>{
+          next(err)
+        })
+  })
+  })
+
+  router.post('/password-reset/:id', (req, res, next) => {
+    let password = req.body.password
+
+    const salt     = bcrypt.genSaltSync(10);
+    const hashPass = bcrypt.hashSync(password, salt);
+
+    User.findByIdAndUpdate(req.params.id, {
+        password: hashPass
+    })
+    .then(response => {
+        res.json({message: 'Password updated successfully'})
+    })
+    .catch(err => {
+        console.log(err);
+    })
+  })
+
 
 module.exports = router;
