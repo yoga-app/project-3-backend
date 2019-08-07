@@ -140,7 +140,8 @@ router.get('/getcurrentuser', (req, res, next) => {
         .populate('favoritedItems')
         .populate('daily.routine')
         .then(user=> {
-            newObject.favoritedItems = user.favoritedItems
+            newObject.favoritedItems = user.favoritedItems;
+            newObject.daily = user.daily;
             res.status(200).json(newObject);
         })
         .catch(err=> {
