@@ -168,7 +168,7 @@ router.post('/updateuserpackage/:id', (req, res, next) => {
     'package.type': req.body.type
     }, {new: true})
     .then((updatedUser)=> {
-        res.json({message: "Package info updated successfully", updatedUser: updatedUser})
+        res.json({message: "We will reach out to you shortly. Make sure your contact information is correct!", updatedUser: updatedUser})
     })
     .catch(err=> {
         res.status(500).json({message: "Something went wrong updating user package"})
