@@ -101,7 +101,7 @@ router.post('/login', (req, res, next) => {
         }
     
         if (!theUser) {
-            res.status(401).json(failureDetails);
+            res.status(401).json({message: "Login or password not found", details: failureDetails});
             return;
         }
   
@@ -136,7 +136,9 @@ router.get('/getcurrentuser', (req, res, next) => {
         newObject.isAdmin = req.user.isAdmin;
         newObject.level = req.user.level;
 
-        User.findById(newObject._id).populate('favoritedItems')
+        User.findById(newObject._id)
+        .populate('favoritedItems')
+        .populate('daily.routine')
         .then(user=> {
             newObject.favoritedItems = user.favoritedItems
             res.status(200).json(newObject);
@@ -211,7 +213,9 @@ router.post('/deleteprofile/:id', (req, res, next) => {
 })
 
 router.get('/getuserbyid/:id', (req, res, next) => {
-    User.findById(req.params.id).populate('favoritedItems')
+    User.findById(req.params.id)
+    .populate('favoritedItems')
+    .populate('daily.routine')
     .then((user)=> {
         res.json(user)
     })
@@ -272,6 +276,35 @@ router.post('/forgot-pass', (req, res, next)=>{
         console.log(err);
     })
   })
+
+  router.post('/update-daily-routine/:id', (req, res, next) => {
+      User.findByIdAndUpdate(req.params.id, {
+        'daily.routine' : req.body.routine,
+        'daily.description' : req.body.description,
+      }, {new: true})
+      .then(response => {
+          res.json({message: "Daily routine updated successfully", updatedUser: response})
+      })
+      .catch(err => {
+          console.log(err);
+        res.status(500).json({message: "Something went wrong updating daily routine"})
+      })
+  })
+
+  router.post('/update-daily-routine-for-all/', (req, res, next) => {
+      User.updateMany({}, {
+        'daily.routine' : req.body.routine,
+        'daily.description' : req.body.description,
+      }, {new: true})
+      .then(response => {
+          res.json({message: "Daily routine updated successfully", updatedUsers: response})
+      })
+      .catch(err => {
+          console.log(err);
+        res.status(500).json({message: "Something went wrong updating daily routine"})
+      })
+  })
+
 
 
 module.exports = router;

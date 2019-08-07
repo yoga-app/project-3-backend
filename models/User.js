@@ -10,6 +10,10 @@ const userSchema = new Schema({
   lastName: String,
   picture: {type: String, default: 'https://res.cloudinary.com/ironhack55/image/upload/v1564588169/default-profile_tlj5l0.png'}, //url to claudinary 
   favoritedItems: [{type: Schema.Types.ObjectId, ref: 'GalleryItem'}],
+  daily: {
+    routine: [{type: Schema.Types.ObjectId, ref: 'Asana'}],
+    description: String,
+  },
   subscription: {
                   startedDate: Date,
                   endDate: Date,
